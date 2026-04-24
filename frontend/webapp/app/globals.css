@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
+/* ─── Brand tokens ─────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-navy: #0D1B2A;
+  --color-navy-light: #1A2E42;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8C97A;
+  --color-cream: #F5F0E8;
+  --color-white: #FFFFFF;
+  --color-gray-muted: #6B7280;
+  --color-border: rgba(201, 168, 76, 0.2);
 }
 
+/* ─── Tailwind CSS 4 theme ─────────────────────────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: var(--color-navy);
+  --color-navy-light: var(--color-navy-light);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-cream: var(--color-cream);
+
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── Keyframes ────────────────────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-navy);
+  color: var(--color-cream);
+  font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* ─── Grain texture overlay ────────────────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px;
+}
+
+/* ─── Focus ring ───────────────────────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* ─── Skip-to-content ──────────────────────────────────────────────────────── */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-to-content:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-gold);
+  color: var(--color-navy);
+  font-weight: 700;
+  border-radius: 4px;
+  z-index: 10000;
+}
+
+/* ─── Marquee ──────────────────────────────────────────────────────────────── */
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* ─── Utilities ────────────────────────────────────────────────────────────── */
+.gold-rule {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+  border-radius: 1px;
+}
+
+.section-cream { background: var(--color-cream); color: var(--color-navy); }
+.section-navy  { background: var(--color-navy);  color: var(--color-cream); }
+
+.text-gold     { color: var(--color-gold); }
+.text-cream    { color: var(--color-cream); }
+.border-gold   { border-color: var(--color-border); }
+
+/* ─── Diagonal line texture ────────────────────────────────────────────────── */
+.diagonal-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(201, 168, 76, 0.03) 20px,
+    rgba(201, 168, 76, 0.03) 21px
+  );
+}
+
+/* ─── Prose overrides (blog) ───────────────────────────────────────────────── */
+.prose-law h1, .prose-law h2, .prose-law h3 {
+  font-family: var(--font-display);
+  color: var(--color-navy);
+  font-weight: 600;
+}
+.prose-law p { color: #374151; line-height: 1.8; margin-bottom: 1.25rem; }
+.prose-law a { color: var(--color-gold); text-decoration: underline; }
+.prose-law ul { padding-left: 1.5rem; list-style: disc; }
+.prose-law li { margin-bottom: 0.5rem; color: #374151; }
