@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { buildMetadata } from "@/lib/metadata";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import SectionHeader from "@/components/shared/SectionHeader";
@@ -164,13 +165,15 @@ export default function AboutPage() {
                 style={{ border: "2px solid var(--color-gold)", opacity: 0.4 }}
                 aria-hidden="true"
               />
-              <div
-                className="relative rounded-lg overflow-hidden aspect-[3/4]"
-                style={{
-                  background: "linear-gradient(160deg, var(--color-navy-light) 0%, #06101a 100%)",
-                }}
-              >
-                <div className="absolute inset-0 diagonal-lines opacity-20" aria-hidden="true" />
+              <div className="relative rounded-lg overflow-hidden aspect-[3/4]">
+                <Image
+                  src="/lawyer.jpg"
+                  alt="John Doe, Attorney at Law"
+                  fill
+                  sizes="(min-width: 1024px) 360px, 100vw"
+                  loading="eager"
+                  className="object-cover object-top"
+                />
                 <div
                   className="absolute bottom-0 inset-x-0 p-6"
                   style={{

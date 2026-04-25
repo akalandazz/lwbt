@@ -115,13 +115,15 @@ export default function HeroSection() {
               aria-hidden="true"
             />
             {/* Image */}
-            <div className="relative w-full max-w-md aspect-[3/4] rounded-lg overflow-hidden">
+            <div className="relative w-[28rem] aspect-[3/4] rounded-lg overflow-hidden">
               <Image
                 src="/lawyer.jpg"
                 alt="John Doe, Attorney at Law"
                 fill
+                sizes="448px"
                 className="object-cover object-top"
                 priority
+                loading="eager"
               />
               <div
                 className="absolute inset-0 flex flex-col items-center justify-end p-8"

@@ -94,6 +94,7 @@ export default function AboutPreview() {
                 src="/lawyer.jpg"
                 alt="John Doe, Attorney at Law"
                 fill
+                sizes="320px"
                 className="object-cover object-top"
               />
               <div
