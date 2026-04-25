@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "@/components/shared/Button";
 import { ArrowRight, Award, Star, Clock, Briefcase } from "lucide-react";
 
@@ -104,7 +105,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right — Image placeholder */}
+        {/* Right — Lawyer photo */}
         <div className="hidden lg:flex justify-end">
           <div className="relative">
             {/* Gold offset frame */}
@@ -114,13 +115,14 @@ export default function HeroSection() {
               aria-hidden="true"
             />
             {/* Image */}
-            <div
-              className="relative w-full max-w-md aspect-[3/4] rounded-lg overflow-hidden"
-              style={{
-                background:
-                  "linear-gradient(135deg, var(--color-navy-light) 0%, #0a1520 100%)",
-              }}
-            >
+            <div className="relative w-full max-w-md aspect-[3/4] rounded-lg overflow-hidden">
+              <Image
+                src="/lawyer.jpg"
+                alt="John Doe, Attorney at Law"
+                fill
+                className="object-cover object-top"
+                priority
+              />
               <div
                 className="absolute inset-0 flex flex-col items-center justify-end p-8"
                 style={{
@@ -141,8 +143,6 @@ export default function HeroSection() {
                   Attorney at Law
                 </p>
               </div>
-              {/* Decorative lines */}
-              <div className="absolute inset-0 diagonal-lines opacity-40" aria-hidden="true" />
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import Button from "@/components/shared/Button";
 
@@ -85,15 +86,16 @@ export default function AboutPreview() {
               style={{ border: "2px solid var(--color-gold)", opacity: 0.35 }}
               aria-hidden="true"
             />
-            {/* Image placeholder */}
             <div
               className="relative w-80 aspect-[3/4] rounded-lg overflow-hidden"
-              style={{
-                background: "linear-gradient(160deg, var(--color-navy-light) 0%, #06101a 100%)",
-                border: "1px solid rgba(201,168,76,0.15)",
-              }}
+              style={{ border: "1px solid rgba(201,168,76,0.15)" }}
             >
-              <div className="absolute inset-0 diagonal-lines opacity-30" aria-hidden="true" />
+              <Image
+                src="/lawyer.jpg"
+                alt="John Doe, Attorney at Law"
+                fill
+                className="object-cover object-top"
+              />
               <div
                 className="absolute bottom-0 inset-x-0 p-6"
                 style={{
