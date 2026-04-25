@@ -128,14 +128,3 @@ body::before {
     rgba(201, 168, 76, 0.03) 21px
   );
 }
-
-/* ─── Prose overrides (blog) ───────────────────────────────────────────────── */
-.prose-law h1, .prose-law h2, .prose-law h3 {
-  font-family: var(--font-display);
-  color: var(--color-navy);
-  font-weight: 600;
-}
-.prose-law p { color: #374151; line-height: 1.8; margin-bottom: 1.25rem; }
-.prose-law a { color: var(--color-gold); text-decoration: underline; }
-.prose-law ul { padding-left: 1.5rem; list-style: disc; }
-.prose-law li { margin-bottom: 0.5rem; color: #374151; }

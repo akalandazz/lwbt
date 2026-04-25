@@ -11,7 +11,6 @@ const practiceLinks = [
 const quickLinks = [
   { label: "About John Doe", href: "/about" },
   { label: "Case Results", href: "/results" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Book Consultation", href: "/consultation" },
 ];

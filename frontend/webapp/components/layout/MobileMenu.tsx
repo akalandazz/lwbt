@@ -14,7 +14,6 @@ const links = [
   { label: "Family Law", href: "/practice-areas/family-law", sub: true },
   { label: "Real Estate Law", href: "/practice-areas/real-estate", sub: true },
   { label: "Results", href: "/results" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
